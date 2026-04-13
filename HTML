@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cut by Chip | Video Editing Portfolio</title>
+  <meta
+    name="description"
+    content="Video editing portfolio for Chip Butt. Clean, story-led editing for business promos, welcome videos, social clips, and client-supplied footage."
+  />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-soft: #171a21;
+      --panel: #1d222b;
+      --panel-2: #252b36;
+      --text: #f4f4f4;
+      --muted: #b7beca;
+      --line: #323949;
+      --accent: #d6a85f;
+      --accent-2: #f0c27a;
+      --max: 1180px;
+      --radius: 18px;
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(214,168,95,0.10), transparent 28%),
+        radial-gradient(circle at top left, rgba(240,194,122,0.06), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(15,17,21,0.82);
+      z-index: 50;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      font-size: 0.95rem;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-2);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent-2);
+    }
+
+    .hero {
+      padding: 82px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 0.95;
+      margin: 0 0 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero h1 .highlight {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 5px;
+    }
+
+    .section {
+      padding: 32px 0 70px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .service-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .service-list li {
+      background: var(--panel-2);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: var(--text);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .project-media {
+      background: #0b0d11;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+
+    .project-media iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(214,168,95,0.10);
+      color: var(--accent-2);
+      border: 1px solid rgba(214,168,95,0.22);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .project-box {
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--panel-2);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .project-box h4 {
+      margin: 0 0 8px;
+      font-size: 0.98rem;
+      color: var(--accent-2);
+    }
+
+    .project-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact {
+      padding-bottom: 90px;
+    }
+
+    .contact-box {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(214,168,95,0.09), rgba(255,255,255,0.02));
+      border: 1px solid rgba(214,168,95,0.20);
+      border-radius: 28px;
+      padding: 34px 24px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 14px auto 24px;
+    }
+
+    .footer {
+      padding: 22px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .topbar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .project-body,
+      .card,
+      .hero-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">CUT <span>BY</span> CHIP</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="mailto:youremail@example.com">Hire Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Video Editing Portfolio</div>
+          <h1>
+            Sharp edits.<br />
+            <span class="highlight">Clear storytelling.</span><br />
+            Professional finish.
+          </h1>
+          <p class="hero-copy">
+            I’m Chip Butt, a video editor creating polished business videos, welcome videos,
+            social edits, and client-led promo content. Whether I’m shaping raw footage into
+            something watchable or filming and editing the full piece myself, the goal is the same:
+            make the finished video feel clean, purposeful, and worth watching.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View Projects</a>
+            <a class="btn btn-secondary" href="mailto:youremail@example.com">Email Me</a>
+          </div>
+          <div class="hero-points">
+            <div class="pill">Business Promos</div>
+            <div class="pill">Welcome Videos</div>
+            <div class="pill">Client-Supplied Footage</div>
+            <div class="pill">Filming + Editing</div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>What clients can expect</h2>
+          <div class="stat-list">
+            <div class="stat">
+              <strong>Clear communication</strong>
+              Straightforward delivery, sensible revisions, and no confusing waffle.
+            </div>
+            <div class="stat">
+              <strong>Flexible workflow</strong>
+              I can work from footage you send over, or handle filming and editing myself.
+            </div>
+            <div class="stat">
+              <strong>Professional polish</strong>
+              The aim is always to make the final video feel tighter, cleaner, and more intentional.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2 class="section-title">A portfolio built around the work itself</h2>
+        <p class="section-copy">
+          This page is designed to show not just the finished video, but the thinking behind it.
+          Each project includes the client brief, what I was responsible for, and the reality of
+          the material I was working with. That way, people can judge the result properly.
+        </p>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>How I work</h3>
+            <p>
+              Some projects begin with rough footage and a simple instruction to “make this look good.”
+              Others involve filming, structuring, editing, exporting, and shaping the final result from
+              the ground up. I’m comfortable doing both, and I make that clear on every project shown here.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>What I offer</h3>
+            <ul class="service-list">
+              <li>Editing from client-supplied footage</li>
+              <li>Filming and editing simple business videos</li>
+              <li>Welcome videos, promotional videos, and social content</li>
+              <li>Clean pacing, structure, titles, polish, and final export</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="wrap">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-copy">
+          Replace the sample text below with your real projects. Each card is built to explain the brief,
+          your role, and what the client actually needed.
+        </p>
+
+        <div class="portfolio-grid">
+
+          <article class="project">
+            <div class="project-media">
+              <iframe
+                src="https://drive.google.com/file/d/GOOGLE_DRIVE_FILE_ID_1/preview"
+                allow="autoplay">
+              </iframe>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <div>
+                  <h3 class="project-title">Gold Plus HD — Welcome Video</h3>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Filmed</span>
+                  <span class="tag">Edited</span>
+                  <span class="tag">Exported</span>
+                </div>
+              </div>
+
+              <div class="project-grid">
+                <div class="project-box">
+                  <h4>Client brief</h4>
+                  <p>
+                    Create a welcoming, professional introduction video for the business that feels
+                    approachable, clear, and polished for potential customers.
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>What I did</h4>
+                  <p>
+                    Planned the structure, filmed the content, edited the final piece, tightened the pacing,
+                    and exported the finished video ready for use by the client.
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>Notes</h4>
+                  <p>
+                    This is a full-service example where I handled both production and post-production,
+                    rather than just editing supplied material.
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>Outcome</h4>
+                  <p>
+                    A clean business-facing welcome video designed to present the company professionally
+                    and build trust quickly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <iframe
+                src="https://drive.google.com/file/d/GOOGLE_DRIVE_FILE_ID_2/preview"
+                allow="autoplay">
+              </iframe>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <div>
+                  <h3 class="project-title">Project Title Two</h3>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Edit Only</span>
+                  <span class="tag">Client Footage</span>
+                </div>
+              </div>
+
+              <div class="project-grid">
+                <div class="project-box">
+                  <h4>Client brief</h4>
+                  <p>
+                    [Write what the client needed here. Example: Turn pre-recorded clips into a short,
+                    presentable promotional video for social media or website use.]
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>What I did</h4>
+                  <p>
+                    [Write exactly what you handled here. Example: Edited supplied footage, removed dead
+                    space, improved pacing, added titles, and exported the final deliverable.]
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>Notes</h4>
+                  <p>
+                    [Use this box to explain any limitations. Example: All footage was supplied by the
+                    client, so the finished quality reflects both the source material and the edit.]
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>Outcome</h4>
+                  <p>
+                    [Write the result. Example: A tighter, clearer video that presented the client’s message
+                    more professionally than the raw footage alone.]
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <iframe
+                src="https://drive.google.com/file/d/GOOGLE_DRIVE_FILE_ID_3/preview"
+                allow="autoplay">
+              </iframe>
+            </div>
+            <div class="project-body">
+              <div class="project-top">
+                <div>
+                  <h3 class="project-title">Project Title Three</h3>
+                </div>
+                <div class="tag-row">
+                  <span class="tag">Promo Edit</span>
+                  <span class="tag">Business Content</span>
+                </div>
+              </div>
+
+              <div class="project-grid">
+                <div class="project-box">
+                  <h4>Client brief</h4>
+                  <p>
+                    [Describe the brief.]
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>What I did</h4>
+                  <p>
+                    [Describe your role.]
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>Notes</h4>
+                  <p>
+                    [Add context.]
+                  </p>
+                </div>
+                <div class="project-box">
+                  <h4>Outcome</h4>
+                  <p>
+                    [Describe the finished result.]
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <h2 class="section-title">Need a video editor?</h2>
+          <p>
+            If you’ve got footage that needs shaping into something cleaner, more professional,
+            and easier to watch, get in touch. Whether you need a simple edit, a polished welcome
+            video, or help turning rough clips into something presentable, I’m happy to talk.
+          </p>
+          <a class="btn btn-primary" href="mailto:youremail@example.com">Contact Chip</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      Cut by Chip · Video Editing Portfolio · Chip Butt
+    </div>
+  </footer>
+</body>
+</html>
