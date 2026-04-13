@@ -19,6 +19,7 @@
       --accent: #d6a85f;
       --accent-2: #f0c27a;
       --max: 1180px;
+      --content-max: 820px;
       --radius: 18px;
       --shadow: 0 20px 50px rgba(0,0,0,0.25);
     }
@@ -57,6 +58,11 @@
 
     .wrap {
       width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .content-wrap {
+      width: min(92%, var(--content-max));
       margin: 0 auto;
     }
 
@@ -137,14 +143,7 @@
     }
 
     .hero {
-      padding: 82px 0 56px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 34px;
-      align-items: center;
+      padding: 82px 0 48px;
     }
 
     .eyebrow {
@@ -154,6 +153,7 @@
       font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 14px;
+      text-align: center;
     }
 
     h1 {
@@ -161,133 +161,72 @@
       line-height: 0.95;
       margin: 0 0 18px;
       letter-spacing: -0.04em;
+      text-align: center;
     }
 
-    .hero h1 .highlight {
+    .highlight {
       color: var(--accent);
     }
 
-    .hero-copy {
+    .intro-copy,
+    .section-copy,
+    .supporting-text {
       font-size: 1.08rem;
       color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 28px;
+      max-width: 820px;
+      margin: 0 auto;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      font-size: 1.2rem;
-    }
-
-    .stat-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .stat {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.08rem;
-      margin-bottom: 5px;
+    .intro-copy {
+      text-align: center;
+      margin-bottom: 44px;
     }
 
     .section {
-      padding: 32px 0 70px;
+      padding: 26px 0 34px;
     }
 
     .section-title {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       font-size: clamp(1.8rem, 3vw, 2.7rem);
       letter-spacing: -0.03em;
+      text-align: center;
     }
 
-    .section-copy {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .about-grid {
+    .expect-list,
+    .about-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 26px;
+      margin-top: 28px;
     }
 
-    .card {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .service-list {
-      display: grid;
-      gap: 12px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .service-list li {
-      background: var(--panel-2);
-      border: 1px solid rgba(255,255,255,0.05);
-      padding: 14px 16px;
-      border-radius: 14px;
+    .expect-item h3,
+    .about-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
       color: var(--text);
+      text-align: center;
+    }
+
+    .expect-item p,
+    .about-item p {
+      margin: 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .actions-center {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 34px;
     }
 
     .portfolio-grid {
       display: grid;
       gap: 26px;
+      margin-top: 28px;
     }
 
     .project {
@@ -386,21 +325,14 @@
     }
 
     .contact {
-      padding-bottom: 90px;
+      padding: 36px 0 90px;
     }
 
-    .contact-box {
+    .contact p {
       text-align: center;
-      background: linear-gradient(180deg, rgba(214,168,95,0.09), rgba(255,255,255,0.02));
-      border: 1px solid rgba(214,168,95,0.20);
-      border-radius: 28px;
-      padding: 34px 24px;
-    }
-
-    .contact-box p {
       color: var(--muted);
-      max-width: 700px;
-      margin: 14px auto 24px;
+      margin: 0 auto 24px;
+      max-width: 760px;
     }
 
     .footer {
@@ -408,6 +340,7 @@
       color: var(--muted);
       border-top: 1px solid rgba(255,255,255,0.06);
       font-size: 0.95rem;
+      text-align: center;
     }
 
     .modal {
@@ -490,8 +423,6 @@
     }
 
     @media (max-width: 900px) {
-      .hero-grid,
-      .about-grid,
       .project-grid {
         grid-template-columns: 1fr;
       }
@@ -515,9 +446,7 @@
         gap: 12px;
       }
 
-      .project-body,
-      .card,
-      .hero-card {
+      .project-body {
         padding: 18px;
       }
     }
@@ -538,63 +467,68 @@
 
   <main>
     <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">Video Editing Portfolio</div>
-          <h1>
-            Sharp edits.<br />
-            <span class="highlight">Clear storytelling.</span><br />
-            Professional finish.
-          </h1>
-          <p class="hero-copy">
-            I’m Chip Butt, a video editor creating polished business videos, welcome videos,
-            promotional edits, and client-led content. Whether I’m shaping raw footage into
-            something tighter and more watchable or handling filming and editing myself, the goal
-            is always the same: make the final result feel clean, purposeful, and professional.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#work">View Projects</a>
-            <a class="btn btn-secondary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Email Me</a>
+      <div class="content-wrap">
+        <div class="eyebrow">Video Editing Portfolio</div>
+        <h1>
+          Sharp edits.<br />
+          <span class="highlight">Clear storytelling.</span><br />
+          Professional finish.
+        </h1>
+        <p class="intro-copy">
+          I’m Chip Butt, a video editor creating polished business videos, welcome videos,
+          promotional edits, and client-led content. Whether I’m shaping raw footage into
+          something tighter and more watchable or handling filming and editing myself, the goal
+          is always the same: make the final result feel clean, purposeful, and professional.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="content-wrap">
+        <h2 class="section-title">What clients can expect</h2>
+
+        <div class="expect-list">
+          <div class="expect-item">
+            <h3>Clear communication</h3>
+            <p>Straightforward delivery, sensible revisions, and no overcomplicated waffle.</p>
           </div>
-          <div class="hero-points">
-            <div class="pill">Business Promos</div>
-            <div class="pill">Welcome Videos</div>
-            <div class="pill">Client Footage</div>
-            <div class="pill">Filming + Editing</div>
+
+          <div class="expect-item">
+            <h3>Flexible workflow</h3>
+            <p>I can work from footage you send over, or handle filming and editing myself.</p>
+          </div>
+
+          <div class="expect-item">
+            <h3>Professional polish</h3>
+            <p>The aim is always to make the final video feel tighter, cleaner, and more intentional.</p>
           </div>
         </div>
 
-        <aside class="hero-card">
-          <h2>What clients can expect</h2>
-          <div class="stat-list">
-            <div class="stat">
-              <strong>Clear communication</strong>
-              Straightforward delivery, sensible revisions, and no overcomplicated waffle.
-            </div>
-            <div class="stat">
-              <strong>Flexible workflow</strong>
-              I can work from footage you send over, or handle filming and editing myself.
-            </div>
-            <div class="stat">
-              <strong>Professional polish</strong>
-              The aim is always to make the final video feel tighter, cleaner, and more intentional.
-            </div>
-          </div>
-        </aside>
+        <div class="actions-center">
+          <a class="btn btn-primary" href="#work">View Projects</a>
+          <a class="btn btn-secondary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Email Me</a>
+        </div>
       </div>
     </section>
 
     <section id="about" class="section">
-      <div class="wrap">
+      <div class="content-wrap">
         <h2 class="section-title">A portfolio built around the work itself</h2>
-        <p class="section-copy">
+        <p class="section-copy" style="text-align:center;">
           This page is designed to show not just the finished video, but the thinking behind it.
           Each project includes the client brief, what I was responsible for, and the reality of
           the material I was working with, so people can judge the result properly.
         </p>
-
-        <div class="about-grid">
-          <div class="card">
+      <div class="about-item">
+            <h3>What I offer</h3>
+            <p>
+              Editing from client-supplied footage, filming and editing simple business videos, welcome
+              videos, promotional videos, and branded content, with clean pacing, structure, titles,
+              polish, and final export.
+            </p>
+          </div>  
+        <div class="about-list">
+          <div class="about-item">
             <h3>How I work</h3>
             <p>
               Some projects begin with rough footage and a simple instruction to make it more presentable.
@@ -603,15 +537,7 @@
             </p>
           </div>
 
-          <div class="card">
-            <h3>What I offer</h3>
-            <ul class="service-list">
-              <li>Editing from client-supplied footage</li>
-              <li>Filming and editing simple business videos</li>
-              <li>Welcome videos, promotional videos, and branded content</li>
-              <li>Clean pacing, structure, titles, polish, and final export</li>
-            </ul>
-          </div>
+        
         </div>
       </div>
     </section>
@@ -619,7 +545,7 @@
     <section id="work" class="section">
       <div class="wrap">
         <h2 class="section-title">Selected Projects</h2>
-        <p class="section-copy">
+        <p class="section-copy" style="text-align:center;">
           A mix of client-supplied edits, filmed promos, and purpose-led videos created to inform,
           reassure, promote, or preserve important moments.
         </p>
@@ -924,16 +850,16 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <div class="wrap">
-        <div class="contact-box">
-          <h2 class="section-title">Need a video editor?</h2>
-          <p>
-            If you’ve got footage that needs shaping into something cleaner, more professional,
-            and easier to watch, get in touch. Whether you need a simple edit, a polished welcome
-            video, a promotional piece, or help turning rough clips into something presentable,
-            I’m happy to talk.
-          </p>
+    <section id="contact" class="contact">
+      <div class="content-wrap">
+        <h2 class="section-title">Need a video editor?</h2>
+        <p>
+          If you’ve got footage that needs shaping into something cleaner, more professional,
+          and easier to watch, get in touch. Whether you need a simple edit, a polished welcome
+          video, a promotional piece, or help turning rough clips into something presentable,
+          I’m happy to talk.
+        </p>
+        <div class="actions-center">
           <a class="btn btn-primary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Email Me</a>
         </div>
       </div>
