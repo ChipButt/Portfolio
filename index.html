@@ -304,7 +304,6 @@
     }
 
     .video-thumb {
-      position: relative;
       width: 100%;
       border: 0;
       padding: 0;
@@ -324,50 +323,6 @@
     .video-thumb:hover img {
       transform: scale(1.01);
       filter: brightness(1.03);
-    }
-
-    .thumb-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.10),
-        rgba(0,0,0,0.14)
-      );
-      pointer-events: none;
-    }
-
-    .play-badge {
-      width: 88px;
-      height: 88px;
-      border-radius: 999px;
-      background: rgba(214,168,95,0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
-      position: relative;
-    }
-
-    .play-badge::before {
-      content: "";
-      margin-left: 6px;
-      border-style: solid;
-      border-width: 16px 0 16px 24px;
-      border-color: transparent transparent transparent white;
-      display: block;
-    }
-
-    .thumb-text {
-      color: white;
-      font-size: clamp(1.15rem, 2vw, 1.9rem);
-      font-weight: 700;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.35);
     }
 
     .project-body {
@@ -565,15 +520,6 @@
       .hero-card {
         padding: 18px;
       }
-
-      .play-badge {
-        width: 72px;
-        height: 72px;
-      }
-
-      .play-badge::before {
-        border-width: 13px 0 13px 20px;
-      }
     }
   </style>
 </head>
@@ -689,10 +635,6 @@
                 data-video="https://drive.google.com/file/d/11SB8SGtIt9UQn6nVxgYTV30zDntxe753/preview"
                 data-ratio="landscape">
                 <img src="Luci & Gareth's Wedding Video.png" alt="Thumbnail for Luci & Gareth's Wedding Video" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -735,10 +677,6 @@
                 data-video="https://drive.google.com/file/d/13VmWJvdCIgjOQJO21zvY0tBAI-9WvF_C/preview"
                 data-ratio="landscape">
                 <img src="Generation Gap Boat Tour V2.png" alt="Thumbnail for Generation Gap Boat Tour" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -781,10 +719,6 @@
                 data-video="https://drive.google.com/file/d/17RS3FLET6fv_cbbs9uE1Owv-VKmG5P88/preview"
                 data-ratio="landscape">
                 <img src="Evesham Dog Walking Field.png" alt="Thumbnail for Evesham Dog Walking Field" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -827,10 +761,6 @@
                 data-video="https://drive.google.com/file/d/1EbyOdz7UIJeAGkJyK-dYZmCHDOv0X0n6/preview"
                 data-ratio="portrait">
                 <img src="Stepping Stones Entry Video - V1.png" alt="Thumbnail for Stepping Stones Entry Video" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -873,10 +803,6 @@
                 data-video="https://drive.google.com/file/d/1UpvSkLxGGR1I4c-qPZ8_9NTL_9-y2vKw/preview"
                 data-ratio="portrait">
                 <img src="Kinder Cauvin - 27.10.2021.png" alt="Thumbnail for Kinder memorial video" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -919,10 +845,6 @@
                 data-video="https://drive.google.com/file/d/1gGcUlahpTm7bW4P-dLCfvPLK-rkNEK5A/preview"
                 data-ratio="landscape">
                 <img src="Stratford House Avert.png" alt="Thumbnail for Stratford House" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -965,10 +887,6 @@
                 data-video="https://drive.google.com/file/d/1moEB5-IuMwiAC7WVwQLJJOEQ_XvR8FWo/preview"
                 data-ratio="square">
                 <img src="Simon's 24 Hour Run.png" alt="Thumbnail for Simon's 24 Hour Run" />
-                <span class="thumb-overlay">
-                  <span class="play-badge"></span>
-                  <span class="thumb-text">Watch the Video</span>
-                </span>
               </button>
             </div>
             <div class="project-body">
@@ -1054,9 +972,11 @@
         modalTitle.textContent = title;
         modalVideo.className = `modal-video ${ratio}`;
         modalPanel.className = 'modal-panel';
+
         if (ratio === 'portrait') {
           modalPanel.classList.add('portrait');
         }
+
         if (ratio === 'square') {
           modalPanel.classList.add('square');
         }
