@@ -42,9 +42,17 @@
       line-height: 1.55;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    button {
+      font: inherit;
     }
 
     .wrap {
@@ -291,39 +299,75 @@
     }
 
     .project-media {
-      padding: 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: transparent;
+      background: #101318;
     }
 
-    .project-media iframe {
-      display: block;
+    .video-thumb {
+      position: relative;
       width: 100%;
       border: 0;
-      background: transparent;
+      padding: 0;
+      background: none;
+      display: block;
+      cursor: pointer;
     }
 
-    .ratio-landscape iframe {
-      aspect-ratio: 16 / 9;
+    .video-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.25s ease, filter 0.25s ease;
     }
 
-    .ratio-classic iframe {
-      aspect-ratio: 4 / 3;
+    .video-thumb:hover img {
+      transform: scale(1.01);
+      filter: brightness(1.03);
     }
 
-    .ratio-square iframe {
-      aspect-ratio: 1 / 1;
-    }
-
-    .ratio-portrait {
+    .thumb-overlay {
+      position: absolute;
+      inset: 0;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      background: transparent;
+      gap: 18px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.10),
+        rgba(0,0,0,0.14)
+      );
+      pointer-events: none;
     }
 
-    .ratio-portrait iframe {
-      width: min(100%, 420px);
-      aspect-ratio: 9 / 16;
+    .play-badge {
+      width: 88px;
+      height: 88px;
+      border-radius: 999px;
+      background: rgba(214,168,95,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+      position: relative;
+    }
+
+    .play-badge::before {
+      content: "";
+      margin-left: 6px;
+      border-style: solid;
+      border-width: 16px 0 16px 24px;
+      border-color: transparent transparent transparent white;
+      display: block;
+    }
+
+    .thumb-text {
+      color: white;
+      font-size: clamp(1.15rem, 2vw, 1.9rem);
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.35);
     }
 
     .project-body {
@@ -411,6 +455,85 @@
       font-size: 0.95rem;
     }
 
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-panel {
+      width: min(1100px, 100%);
+      background: #0f1115;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+
+    .modal-panel.portrait {
+      width: min(620px, 100%);
+    }
+
+    .modal-panel.square {
+      width: min(820px, 100%);
+    }
+
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .modal-close {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .modal-video {
+      width: 100%;
+      background: #000;
+    }
+
+    .modal-video.landscape {
+      aspect-ratio: 16 / 9;
+    }
+
+    .modal-video.portrait {
+      aspect-ratio: 9 / 16;
+    }
+
+    .modal-video.square {
+      aspect-ratio: 1 / 1;
+    }
+
+    .modal-video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
     @media (max-width: 900px) {
       .hero-grid,
       .about-grid,
@@ -441,6 +564,15 @@
       .card,
       .hero-card {
         padding: 18px;
+      }
+
+      .play-badge {
+        width: 72px;
+        height: 72px;
+      }
+
+      .play-badge::before {
+        border-width: 13px 0 13px 20px;
       }
     }
   </style>
@@ -549,12 +681,19 @@
         <div class="portfolio-grid">
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/11SB8SGtIt9UQn6nVxgYTV30zDntxe753/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Luci &amp; Gareth's Wedding Video"
+                data-video="https://drive.google.com/file/d/11SB8SGtIt9UQn6nVxgYTV30zDntxe753/preview"
+                data-ratio="landscape">
+                <img src="Luci & Gareth's Wedding Video.png" alt="Thumbnail for Luci & Gareth's Wedding Video" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -588,12 +727,19 @@
           </article>
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/13VmWJvdCIgjOQJO21zvY0tBAI-9WvF_C/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Generation Gap Boat Tour V2"
+                data-video="https://drive.google.com/file/d/13VmWJvdCIgjOQJO21zvY0tBAI-9WvF_C/preview"
+                data-ratio="landscape">
+                <img src="Generation Gap Boat Tour V2.png" alt="Thumbnail for Generation Gap Boat Tour" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -627,12 +773,19 @@
           </article>
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/17RS3FLET6fv_cbbs9uE1Owv-VKmG5P88/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Evesham Dog Walking Field"
+                data-video="https://drive.google.com/file/d/17RS3FLET6fv_cbbs9uE1Owv-VKmG5P88/preview"
+                data-ratio="landscape">
+                <img src="Evesham Dog Walking Field.png" alt="Thumbnail for Evesham Dog Walking Field" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -666,12 +819,19 @@
           </article>
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/1EbyOdz7UIJeAGkJyK-dYZmCHDOv0X0n6/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Stepping Stones Entry Video - V1"
+                data-video="https://drive.google.com/file/d/1EbyOdz7UIJeAGkJyK-dYZmCHDOv0X0n6/preview"
+                data-ratio="portrait">
+                <img src="Stepping Stones Entry Video - V1.png" alt="Thumbnail for Stepping Stones Entry Video" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -705,12 +865,19 @@
           </article>
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/1UpvSkLxGGR1I4c-qPZ8_9NTL_9-y2vKw/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Kinder Cauvin - 27.10.2021"
+                data-video="https://drive.google.com/file/d/1UpvSkLxGGR1I4c-qPZ8_9NTL_9-y2vKw/preview"
+                data-ratio="portrait">
+                <img src="Kinder Cauvin - 27.10.2021.png" alt="Thumbnail for Kinder memorial video" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -744,12 +911,19 @@
           </article>
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/1gGcUlahpTm7bW4P-dLCfvPLK-rkNEK5A/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Stratford House Avert"
+                data-video="https://drive.google.com/file/d/1gGcUlahpTm7bW4P-dLCfvPLK-rkNEK5A/preview"
+                data-ratio="landscape">
+                <img src="Stratford House Avert.png" alt="Thumbnail for Stratford House" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -783,12 +957,19 @@
           </article>
 
           <article class="project">
-            <div class="project-media ratio-landscape">
-              <iframe
-                src="https://drive.google.com/file/d/1moEB5-IuMwiAC7WVwQLJJOEQ_XvR8FWo/preview"
-                loading="lazy"
-                allow="autoplay">
-              </iframe>
+            <div class="project-media">
+              <button
+                class="video-thumb open-video"
+                type="button"
+                data-title="Simon's 24 Hour Run"
+                data-video="https://drive.google.com/file/d/1moEB5-IuMwiAC7WVwQLJJOEQ_XvR8FWo/preview"
+                data-ratio="square">
+                <img src="Simon's 24 Hour Run.png" alt="Thumbnail for Simon's 24 Hour Run" />
+                <span class="thumb-overlay">
+                  <span class="play-badge"></span>
+                  <span class="thumb-text">Watch the Video</span>
+                </span>
+              </button>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -846,5 +1027,76 @@
       Cut by Chip · Video Editing Portfolio · Chip Butt
     </div>
   </footer>
+
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <div class="modal-panel" id="modalPanel">
+      <div class="modal-top">
+        <h3 class="modal-title" id="modalTitle">Video Viewer</h3>
+        <button class="modal-close" id="closeModal" type="button">Close</button>
+      </div>
+      <div class="modal-video landscape" id="modalVideo"></div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('videoModal');
+    const modalPanel = document.getElementById('modalPanel');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    document.querySelectorAll('.open-video').forEach(button => {
+      button.addEventListener('click', () => {
+        const src = button.getAttribute('data-video');
+        const title = button.getAttribute('data-title');
+        const ratio = button.getAttribute('data-ratio') || 'landscape';
+
+        modalTitle.textContent = title;
+        modalVideo.className = `modal-video ${ratio}`;
+        modalPanel.className = 'modal-panel';
+        if (ratio === 'portrait') {
+          modalPanel.classList.add('portrait');
+        }
+        if (ratio === 'square') {
+          modalPanel.classList.add('square');
+        }
+
+        modalVideo.innerHTML = `
+          <iframe
+            src="${src}"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+          </iframe>
+        `;
+
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      modalVideo.innerHTML = '';
+      modalVideo.className = 'modal-video landscape';
+      modalPanel.className = 'modal-panel';
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
