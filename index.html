@@ -42,17 +42,9 @@
       line-height: 1.55;
     }
 
-    body.modal-open {
-      overflow: hidden;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    button {
-      font: inherit;
     }
 
     .wrap {
@@ -299,44 +291,39 @@
     }
 
     .project-media {
-      background:
-        radial-gradient(circle at top right, rgba(214,168,95,0.12), transparent 35%),
-        linear-gradient(135deg, #171b22, #101318);
-      padding: 28px;
+      padding: 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: transparent;
     }
 
-    .video-launch {
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px;
-      min-height: 220px;
+    .project-media iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+      background: transparent;
+    }
+
+    .ratio-landscape iframe {
+      aspect-ratio: 16 / 9;
+    }
+
+    .ratio-classic iframe {
+      aspect-ratio: 4 / 3;
+    }
+
+    .ratio-square iframe {
+      aspect-ratio: 1 / 1;
+    }
+
+    .ratio-portrait {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      gap: 14px;
-      text-align: center;
-      background: rgba(255,255,255,0.03);
-      padding: 24px;
+      background: transparent;
     }
 
-    .video-launch h4 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .video-launch p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 460px;
-    }
-
-    .video-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 4px;
+    .ratio-portrait iframe {
+      width: min(100%, 420px);
+      aspect-ratio: 9 / 16;
     }
 
     .project-body {
@@ -417,93 +404,11 @@
       margin: 14px auto 24px;
     }
 
-    .contact-email {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-      word-break: break-word;
-    }
-
-    .contact-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .copy-feedback {
-      margin-top: 14px;
-      color: var(--accent-2);
-      font-size: 0.95rem;
-      min-height: 1.2em;
-    }
-
     .footer {
       padding: 22px 0 40px;
       color: var(--muted);
       border-top: 1px solid rgba(255,255,255,0.06);
       font-size: 0.95rem;
-    }
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.78);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      z-index: 1000;
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-panel {
-      width: min(1100px, 100%);
-      background: #0f1115;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-    }
-
-    .modal-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .modal-title {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    .modal-close {
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 999px;
-      padding: 10px 14px;
-      cursor: pointer;
-    }
-
-    .modal-video {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-    }
-
-    .modal-video iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
     }
 
     @media (max-width: 900px) {
@@ -534,13 +439,8 @@
 
       .project-body,
       .card,
-      .hero-card,
-      .project-media {
+      .hero-card {
         padding: 18px;
-      }
-
-      .modal {
-        padding: 12px;
       }
     }
   </style>
@@ -553,7 +453,7 @@
         <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn-primary" href="#contact">Hire Me</a>
+        <a class="btn btn-primary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Hire Me</a>
       </nav>
     </div>
   </header>
@@ -576,7 +476,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#work">View Projects</a>
-            <a class="btn btn-secondary" href="#contact">Email Me</a>
+            <a class="btn btn-secondary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Email Me</a>
           </div>
           <div class="hero-points">
             <div class="pill">Business Promos</div>
@@ -649,15 +549,12 @@
         <div class="portfolio-grid">
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Wedding Video (Lucy &amp; Gareth)</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Wedding Video (Lucy &amp; Gareth)" data-src="https://drive.google.com/file/d/11SB8SGtIt9UQn6nVxgYTV30zDntxe753/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/11SB8SGtIt9UQn6nVxgYTV30zDntxe753/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/11SB8SGtIt9UQn6nVxgYTV30zDntxe753/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -669,7 +566,6 @@
                   <span class="tag">Client Footage</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -692,15 +588,12 @@
           </article>
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Generation Gap Boat Tour Promo</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Generation Gap Boat Tour Promo" data-src="https://drive.google.com/file/d/13VmWJvdCIgjOQJO21zvY0tBAI-9WvF_C/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/13VmWJvdCIgjOQJO21zvY0tBAI-9WvF_C/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/13VmWJvdCIgjOQJO21zvY0tBAI-9WvF_C/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -712,7 +605,6 @@
                   <span class="tag">Mixed Footage</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -735,15 +627,12 @@
           </article>
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Evesham Dog Walking Field</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Evesham Dog Walking Field" data-src="https://drive.google.com/file/d/17RS3FLET6fv_cbbs9uE1Owv-VKmG5P88/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/17RS3FLET6fv_cbbs9uE1Owv-VKmG5P88/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/17RS3FLET6fv_cbbs9uE1Owv-VKmG5P88/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -755,7 +644,6 @@
                   <span class="tag">Edited</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -778,15 +666,12 @@
           </article>
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Stepping Stones Welcome Video</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Stepping Stones Welcome Video" data-src="https://drive.google.com/file/d/1EbyOdz7UIJeAGkJyK-dYZmCHDOv0X0n6/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/1EbyOdz7UIJeAGkJyK-dYZmCHDOv0X0n6/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/1EbyOdz7UIJeAGkJyK-dYZmCHDOv0X0n6/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -798,7 +683,6 @@
                   <span class="tag">Client Reassurance</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -821,15 +705,12 @@
           </article>
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Memorial Video (Kinder)</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Memorial Video (Kinder)" data-src="https://drive.google.com/file/d/1UpvSkLxGGR1I4c-qPZ8_9NTL_9-y2vKw/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/1UpvSkLxGGR1I4c-qPZ8_9NTL_9-y2vKw/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/1UpvSkLxGGR1I4c-qPZ8_9NTL_9-y2vKw/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -841,7 +722,6 @@
                   <span class="tag">Memorial Video</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -864,15 +744,12 @@
           </article>
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Stratford House Showcase</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Stratford House Showcase" data-src="https://drive.google.com/file/d/1gGcUlahpTm7bW4P-dLCfvPLK-rkNEK5A/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/1gGcUlahpTm7bW4P-dLCfvPLK-rkNEK5A/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/1gGcUlahpTm7bW4P-dLCfvPLK-rkNEK5A/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -884,7 +761,6 @@
                   <span class="tag">Edited</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -907,15 +783,12 @@
           </article>
 
           <article class="project">
-            <div class="project-media">
-              <div class="video-launch">
-                <h4>Charity Run Promo (COVID-19)</h4>
-                <p>Click to watch the video in the built-in viewer.</p>
-                <div class="video-actions">
-                  <button class="btn btn-primary open-video" data-title="Charity Run Promo (COVID-19)" data-src="https://drive.google.com/file/d/1moEB5-IuMwiAC7WVwQLJJOEQ_XvR8FWo/preview">Watch Video</button>
-                  <a class="btn btn-secondary" href="https://drive.google.com/file/d/1moEB5-IuMwiAC7WVwQLJJOEQ_XvR8FWo/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open in Drive</a>
-                </div>
-              </div>
+            <div class="project-media ratio-landscape">
+              <iframe
+                src="https://drive.google.com/file/d/1moEB5-IuMwiAC7WVwQLJJOEQ_XvR8FWo/preview"
+                loading="lazy"
+                allow="autoplay">
+              </iframe>
             </div>
             <div class="project-body">
               <div class="project-top">
@@ -927,7 +800,6 @@
                   <span class="tag">Promo Edit</span>
                 </div>
               </div>
-
               <div class="project-grid">
                 <div class="project-box">
                   <h4>Client brief</h4>
@@ -963,17 +835,7 @@
             video, a promotional piece, or help turning rough clips into something presentable,
             I’m happy to talk.
           </p>
-
-          <div class="contact-email" id="emailAddress">
-            jameschipbutt@hotmail.com
-          </div>
-
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Open Email App</a>
-            <button class="btn btn-secondary" id="copyEmailBtn" type="button">Copy Email Address</button>
-          </div>
-
-          <div class="copy-feedback" id="copyFeedback"></div>
+          <a class="btn btn-primary" href="mailto:jameschipbutt@hotmail.com?subject=Video%20Editing%20Enquiry">Email Me</a>
         </div>
       </div>
     </section>
@@ -984,77 +846,5 @@
       Cut by Chip · Video Editing Portfolio · Chip Butt
     </div>
   </footer>
-
-  <div class="modal" id="videoModal" aria-hidden="true">
-    <div class="modal-panel">
-      <div class="modal-top">
-        <h3 class="modal-title" id="modalTitle">Video Viewer</h3>
-        <button class="modal-close" id="closeModal" type="button">Close</button>
-      </div>
-      <div class="modal-video" id="modalVideo"></div>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-    const modalTitle = document.getElementById('modalTitle');
-    const closeModalBtn = document.getElementById('closeModal');
-
-    document.querySelectorAll('.open-video').forEach(button => {
-      button.addEventListener('click', () => {
-        const src = button.getAttribute('data-src');
-        const title = button.getAttribute('data-title');
-
-        modalTitle.textContent = title;
-        modalVideo.innerHTML = `
-          <iframe
-            src="${src}"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        `;
-
-        modal.classList.add('show');
-        document.body.classList.add('modal-open');
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    });
-
-    function closeModal() {
-      modal.classList.remove('show');
-      document.body.classList.remove('modal-open');
-      modal.setAttribute('aria-hidden', 'true');
-      modalVideo.innerHTML = '';
-    }
-
-    closeModalBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && modal.classList.contains('show')) {
-        closeModal();
-      }
-    });
-
-    const copyBtn = document.getElementById('copyEmailBtn');
-    const copyFeedback = document.getElementById('copyFeedback');
-    const emailText = 'jameschipbutt@hotmail.com';
-
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(emailText);
-        copyFeedback.textContent = 'Email address copied.';
-      } catch (error) {
-        copyFeedback.textContent = 'Could not copy automatically. Please copy the address manually.';
-      }
-    });
-  </script>
 </body>
 </html>
