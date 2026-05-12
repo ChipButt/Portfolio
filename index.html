@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cut by Chip | Video Editing & Website Design</title>
+  <meta name="description" content="Cut by Chip video editing and website design portfolio." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Cut by Chip logo"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a data-nav="home" href="index.html">Home</a>
+      <a data-nav="work" href="work.html">Finished Projects</a>
+      <a data-nav="reviews" href="reviews.html">Reviews</a>
+      <a data-nav="pricing" href="pricing.html">Pricing Guide</a>
+      <a data-nav="contact" href="contact.html">Contact</a>
+      <a class="btn btn-outline-blue nav-cta" href="mailto:jameschipbutt@hotmail.com?subject=Cut%20by%20Chip%20Enquiry"><img src="assets/icon-message.png" alt="">Start Enquiry</a>
+    </nav>
+  </div>
+</header>
+<main class="home-main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy-panel">
+        <h1 class="home-hero-title">
+          <span>Powerful edits</span><br>
+          <span>that tell <em class="green">your story</em></span><br>
+          <span>Websites that</span><br>
+          <span><em class="blue">bring it to life</em></span>
+        </h1>
+        <p class="hero-copy">Professional video editing and simple website design for small businesses, creators and local brands that need something polished, practical and easy to work with.</p>
+        <div class="hero-actions">
+          <a class="btn btn-outline-green" href="work.html?tab=video"><img src="assets/icon-clapper.png" alt="">View My Work</a>
+          <a class="btn btn-outline-blue" href="pricing.html"><img src="assets/icon-pound.png" alt="">Estimate a Project</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Video editing hero image"></div>
+    </div>
+  </section>
+
+  <section class="home-services">
+    <div class="wrap">
+      <div class="section-head home-services-head">
+        <div class="kicker">Services</div>
+        <h2 class="section-title">Two ways I can help.</h2>
+      </div>
+
+      <div class="home-service-stack">
+        <article class="card home-service-card video-card-home">
+          <div class="home-service-copy">
+            <div class="service-title-row">
+              <img src="assets/icon-clapper.png" alt="Video editing icon">
+              <h3>Video Editing</h3>
+            </div>
+            <p>Clean, engaging edits that take your footage and turn it into something structured, polished and easy to watch.</p>
+            <ul class="ticks home-tick-grid">
+              <li><img src="assets/icon-check.png" alt="">YouTube &amp; social media</li>
+              <li><img src="assets/icon-check.png" alt="">Promos &amp; adverts</li>
+              <li><img src="assets/icon-check.png" alt="">Event recaps</li>
+              <li><img src="assets/icon-check.png" alt="">Memorial videos</li>
+              <li><img src="assets/icon-check.png" alt="">Colour, sound &amp; polish</li>
+              <li><img src="assets/icon-check.png" alt="">Titles and graphics where needed</li>
+            </ul>
+            <a class="btn btn-home-green home-service-button" href="work.html?tab=video">See Finished Edits</a>
+          </div>
+          <div class="home-service-art home-video-art" aria-hidden="true"></div>
+        </article>
+
+        <article class="card home-service-card web-card-home">
+          <div class="home-service-art home-web-art" aria-hidden="true"></div>
+          <div class="home-service-copy">
+            <div class="service-title-row">
+              <img src="assets/icon-code.png" alt="Website design icon">
+              <h3>Website Design</h3>
+            </div>
+            <p>Simple, mobile-friendly landing pages for businesses that need a clear online presence without a big agency price tag.</p>
+            <div class="price-badge home-price-badge"><img src="assets/icon-pound.png" alt="">Basic landing page build from £100</div>
+            <ul class="ticks home-tick-grid">
+              <li><img src="assets/icon-check.png" alt="">Client assets supplied</li>
+              <li><img src="assets/icon-check.png" alt="">Mobile-friendly layout</li>
+              <li><img src="assets/icon-check.png" alt="">One review amendment included</li>
+              <li><img src="assets/icon-check.png" alt="">Free hosting setup where suitable</li>
+            </ul>
+            <a class="btn btn-home-blue home-service-button" href="work.html?tab=web">See Finished Websites</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-benefits">
+    <div class="wrap benefit-grid">
+      <article class="card benefit"><img src="assets/icon-lightning.png" alt="Fast turnaround icon"><div><h4>Fast Turnaround</h4><p>Efficient edits and builds without dragging the process out.</p></div></article>
+      <article class="card benefit"><img src="assets/icon-chat.png" alt="Clear communication icon"><div><h4>Clear Communication</h4><p>Plain, practical updates so you always know where things stand.</p></div></article>
+      <article class="card benefit"><img src="assets/icon-pound.png" alt="Affordable pricing icon"><div><h4>Affordable Pricing</h4><p>Good-quality creative support that keeps smaller budgets in mind.</p></div></article>
+    </div>
+  </section>
+
+  <section class="thin-cta">
+    <div class="wrap thin-cta-panel">
+      <div><h2>Let’s create something <span class="green">amazing</span> <span class="blue">together</span></h2><p>Have a project in mind? Let’s make it clearer, sharper and easier to share.</p></div>
+      <a class="btn btn-outline-blue" href="contact.html"><img src="assets/icon-message.png" alt="">Start Your Journey</a>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-row footer-simple">
+    <span>© 2026 Cut by Chip. All rights reserved.</span>
+  </div>
+</footer>
+<script>document.querySelector('[data-nav="home"]')?.classList.add('active');</script>
+<script src="script.js"></script>
+</body>
+</html>

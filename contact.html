@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cut by Chip | Contact</title>
+  <meta name="description" content="Contact Cut by Chip." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="assets/logo.png" alt="Cut by Chip logo"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a data-nav="home" href="index.html">Home</a>
+      <a data-nav="work" href="work.html">Finished Projects</a>
+      <a data-nav="reviews" href="reviews.html">Reviews</a>
+      <a data-nav="pricing" href="pricing.html">Pricing Guide</a>
+      <a data-nav="contact" href="contact.html">Contact</a>
+      <a class="btn btn-outline-blue nav-cta" href="mailto:jameschipbutt@hotmail.com?subject=Cut%20by%20Chip%20Enquiry"><img src="assets/icon-message.png" alt="">Start Enquiry</a>
+    </nav>
+  </div>
+</header>
+<main class="textured-page contact-page">
+  <section class="page-hero compact">
+    <div class="wrap page-head centered-page-head">
+      <div><div class="kicker">Contact</div><h1>GET IN TOUCH</h1></div>
+    </div>
+  </section>
+  <section class="section contact-section">
+    <div class="wrap contact-one">
+      <article class="card contact-card">
+        <form id="contactForm" class="contact-form">
+          <input id="name" required placeholder="Your name">
+          <input id="email" type="email" required placeholder="Your email">
+          <input id="service" placeholder="Video editing / website design / both">
+          <textarea id="message" required placeholder="Tell me what you need."></textarea>
+          <button class="btn btn-outline-green" type="submit"><img src="assets/icon-message.png" alt="">Start your enquiry</button>
+        </form>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-row footer-simple">
+    <span>© 2026 Cut by Chip. All rights reserved.</span>
+  </div>
+</footer>
+<script>document.querySelector('[data-nav="contact"]')?.classList.add('active');</script>
+<script src="script.js"></script>
+</body>
+</html>
